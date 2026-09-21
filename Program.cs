@@ -6,7 +6,6 @@ namespace KT3
     {
         static void Main(string[] args)
         {
-            task6();
         }
         static void task1()
         {
@@ -161,6 +160,55 @@ namespace KT3
                     
                 }
                 Console.Write("\n");
+            }
+        }
+        static void task7()
+        {
+            int r = int.Parse(Console.ReadLine());
+            int[] ls = new int[r];
+            int curr = 1;
+            for (int i = 1; i <= r; i++)
+            {
+                ls[i-1] = i;
+            }
+            Console.WriteLine(ls[0]);
+            for(int i = 2; i < r; i++)
+            {
+                for(int j = 2; j < i; j++)
+                {
+                    for (int x  = 0; x < j; x++ )
+                    {
+                        if (curr < ls.Length)
+                        {
+
+                            Console.Write(ls[curr] + " ");
+                            curr++;
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    Console.Write("\n");
+                }
+                for (int j = i; j > 0; j--)
+                {
+                    for (int x = j; x > 0; x--)
+                    {
+                        if (curr < ls.Length)
+                        {
+
+                            Console.Write(ls[curr] + " ");
+                            curr++;
+                        }
+
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    Console.Write("\n");
+                }
             }
         }
     }
